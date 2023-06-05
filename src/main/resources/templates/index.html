@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="head.html">
+</head>
+<body>
+    <div class="container-fluid">
+        <div th:insert="navbar.html"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>SURNAME</th>
+                            <th>EXAM</th>
+                            <th>GRADE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each = "stud : ${students}"
+                            th:style="${stud.exam} < 50 ? 'color:red;' : 'color: green;'">
+                            <td th:text="${stud.id}"></td>
+                            <td th:text="${stud.name}"></td>
+                            <td th:text="${stud.surname}"></td>
+                            <td th:text="${stud.exam}"></td>
+                            <td th:text="${stud.grade}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
